@@ -3,7 +3,11 @@ fun main() {
 }
 
 class ProblemDay02:Problem("Day02") {
-    override fun validateTestInput(result: Int) {
+    override fun validatePart1TestInput(result: Int) {
+        check(result == 3)
+    }
+
+    override fun validatePart2TestInput(result: Int) {
         check(result == 3)
     }
 

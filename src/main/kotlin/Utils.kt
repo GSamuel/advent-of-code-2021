@@ -15,3 +15,5 @@ object Reader {
  * Converts string to md5 hash.
  */
 fun String.md5(): String = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteArray())).toString(16)
+
+fun List<String>.toNumbers() = map { it.toInt() }

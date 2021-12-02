@@ -44,7 +44,5 @@ class ProblemDay02 : Problem<Int>("Day02") {
         fun multiply() = x * y
     }
 
-    data class AimedPos(val pos:Pos = Pos(0,0), val aim:Int = 0) {
-
-    }
+    data class AimedPos(val pos:Pos = Pos(0,0), val aim:Int = 0)
 }

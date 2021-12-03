@@ -44,11 +44,11 @@ class ProblemDay03 : Problem<Int>("Day03") {
     }
 
     private fun String.invert(): String {
-        return this.map { if(it == '1') 0 else 1 }.joinToString(separator = "")
+        return this.map { if(it == '1') '0' else '1' }.joinToString(separator = "")
     }
 
     private fun List<String>.toMostCommonBits(offset: Int = 0): String {
-        return (0 until this[0].length).map { this.mostCommonBit(it, offset) }.joinToString(separator = "")
+        return (0 until this[0].length).map { mostCommonBit(it, offset) }.joinToString(separator = "")
     }
 
     private fun Char.invert():Char = when(this) {

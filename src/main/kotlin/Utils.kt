@@ -17,3 +17,23 @@ object Reader {
 fun String.md5(): String = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteArray())).toString(16)
 
 fun List<String>.toInts() = map { it.toInt() }
+
+fun List<String>.split(f:(String)->(Boolean) = {it.isBlank()}):List<List<String>> {
+    val l = mutableListOf<String>()
+    val result = mutableListOf<List<String>>()
+    forEach {
+        if(f.invoke(it)) {
+            if(l.isNotEmpty()) {
+                result.add(l.toList())
+                l.clear()
+            }
+        } else {
+            l.add(it)
+        }
+    }
+    if(l.isNotEmpty()) {
+        result.add(l.toList())
+        l.clear()
+    }
+    return result
+}

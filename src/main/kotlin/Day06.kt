@@ -19,7 +19,7 @@ class ProblemDay06 : Problem<Long>("Day06") {
         return input.toSchoolOfCuteLittleLanternFishies().countCuteLittleLanternFishiesAfterDays(256)
     }
 
-    private fun SchoolOfLanternFishies.countCuteLittleLanternFishiesAfterDays(days:Int): Long {
+    private fun SchoolOfLanternFishies.countCuteLittleLanternFishiesAfterDays(days: Int): Long {
         var fishies = this
         repeat(days) {
             fishies = fishies.nextDay()
@@ -37,15 +37,11 @@ class ProblemDay06 : Problem<Long>("Day06") {
     }
 
     data class SchoolOfLanternFishies(val fishies: Map<Int, Long>) {
-        fun nextDay():SchoolOfLanternFishies {
-            return fishies.entries.fold(mutableMapOf<Int,Long>()) { result, el ->
-                result.apply {
-                    if(el.key > 0) {
-                        this[el.key-1] = (this[el.key - 1] ?: 0) + el.value
-                    } else {
-                        this[6] = (this[6] ?: 0) + el.value
-                        this[8] = el.value
-                    }
+        fun nextDay(): SchoolOfLanternFishies {
+            return (0..8).associateWith {
+                when (it) {
+                    6 -> fishies.getOrDefault(it + 1, 0) + fishies.getOrDefault(it, 0)
+                    else -> fishies.getOrDefault(it + 1, 0)
                 }
             }.let { SchoolOfLanternFishies(it) }
         }

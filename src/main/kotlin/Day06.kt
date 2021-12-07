@@ -40,7 +40,8 @@ class ProblemDay06 : Problem<Long>("Day06") {
         fun nextDay(): SchoolOfLanternFishies {
             return (0..8).associateWith {
                 when (it) {
-                    6 -> fishies.getOrDefault(it + 1, 0) + fishies.getOrDefault(it, 0)
+                    8 -> fishies.getOrDefault(0, 0)
+                    6 -> fishies.getOrDefault(it + 1, 0) + fishies.getOrDefault(0, 0)
                     else -> fishies.getOrDefault(it + 1, 0)
                 }
             }.let { SchoolOfLanternFishies(it) }

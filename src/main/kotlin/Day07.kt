@@ -4,11 +4,11 @@ fun main() {
 
 class ProblemDay07 : Problem<Int>("Day07") {
     override fun validatePart1TestInput(result: Int) {
-        check(result == 198)
+        check(result == -1)
     }
 
     override fun validatePart2TestInput(result: Int) {
-        check(result == 230)
+        check(result == -1)
     }
 
     override fun part1(input: List<String>): Int {
